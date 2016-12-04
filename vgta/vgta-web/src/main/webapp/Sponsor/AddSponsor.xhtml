@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+      
+   <ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/WEB-INF/template/template.xhtml"> 
+
+<ui:define name="pageTitle">TAG</ui:define>
+	<ui:define name="bannerName">ADD Sponsor</ui:define>
+	
+	<ui:define name="mainPagesContent">
+	
+			<h:form  enctype="multipart/form-data">		
+					
+
+
+<h:outputLabel value="Name Contact:" for="NameContact" />
+<div class="youplay-input">
+<h:inputText value="#{gestionSponsor.sponsor.name_contact_sponsor}" id="NameContact" />
+</div>
+
+<h:outputLabel value="Name Sponsor:" for="NameSponsor" />
+<div class="youplay-input">
+<h:inputText value="#{gestionSponsor.sponsor.name_sponsor}"  id="NameSponsor" />
+</div>
+
+<h:outputLabel value="Email:" for="NameEmail" />
+<div class="youplay-input">
+<h:inputText value="#{gestionSponsor.sponsor.email}" id="NameEmail" requiredMessage="Please enter your email address."
+								validator="#{gestionSponsor.validate()}"		validatorMessage="Invalid email format">
+
+<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+</h:inputText>
+</div>
+
+<h:outputLabel value="Date Start Contact:" for="startContact" />
+<div class="youplay-input">
+<p:calendar value="#{gestionSponsor.sponsor.dateStart}"
+			requiredMessage="End date required" />
+</div>
+<h:outputLabel value="Date End Contact:" for="endContact" />
+<div class="youplay-input">
+<p:calendar value="#{gestionSponsor.sponsor.dateEnd}"
+			requiredMessage="End date required" />
+</div>
+ <h:commandButton action="#{gestionSponsor.doAddSponsor()}" styleClass="btn active btn-primary" value=" Add Sponsor" />     
+
+
+</h:form>
+    </ui:define>
+    	<ui:define name="scriptinclude"></ui:define>
+
+
+</ui:composition>

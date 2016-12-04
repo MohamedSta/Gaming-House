@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml"> 
+
+<ui:define name="pageTitle">Boj</ui:define>
+  		
+  		<ui:define name="mainPagesContent">
+  		 <div class="container youplay-content">
+  		 <div class="row">
+        <div class="col-md-3">
+        <h2 class="mt-0">Contact info</h2>
+          : Z.I. Chotrana II - B.P. 160 - 2083 
+          <br/>Pôle Technologique - El Ghazala,
+         
+          <br/>Tél. : (+216) 70 68 56 85
+ <br/>Fax : (+216) 70 68 54 54
+          <br/>Email:  contact@esprit.ens.tn
+          <br/>Web: <a href="http://tagtun.org/">tagtun.info</a>
+          <br/>
+          <br/>
+        </div>
+         </div>
+  		 
+  		 </div>
+      <div class="col-md-9">
+       <h:form >
+
+
+           <h:outputLabel value="Mail"  />
+    <div class="youplay-input">
+<h:inputText value="#{Mail}"  binding="#{mailBean.mail}" id="mailSponsor" />
+</div>
+             <h:outputLabel value="Subject"  />
+             <div class="youplay-input">
+<h:inputText value="#{Cont}"  binding="#{mailBean.cont}" id="contSponsor" />
+</div>
+   
+  <h:outputLabel value="Content"  />
+            <div class="youplay-input">
+<h:inputTextarea value="#{Content}"  binding="#{mailBean.content}" id="contenuSponsor" />
+</div>
+   <h:commandButton action="#{mailBean.doSendMailDynamic(Content,Cont,Mail)}"  value="Send" styleClass="btn active btn-primary"/> 
+</h:form>
+  		
+  		</div>    
+  		
+   </ui:define>
+
+</ui:composition>

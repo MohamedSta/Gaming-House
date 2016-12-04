@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	  <!-- jQuery -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/js/jquery.min.js"></script>
+
+  <!-- CSS Shapes Polyfill -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/js/shapes-polyfill.min.js"></script>
+
+  <!-- Hexagon Progress -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/js/jquery.hexagonprogress.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/bootstrap.min.js"></script>
+
+  <!-- Skrollr -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/js/skrollr.min.js"></script>
+
+  <!-- Smooth Scroll -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/js/smoothscroll.js"></script>
+
+  <!-- Owl Carousel -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/js/owl.carousel.min.js"></script>
+
+  <!-- Countdown -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/js/jquery.countdown.min.js"></script>
+
+  <!-- youplay -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/js/youplay.min.js"></script>
+  <!-- init youplay -->
+  <script>
+    if(typeof youplay !== 'undefined') {
+        youplay.init({
+            smoothscroll: false,
+        });
+    }
+  </script>
+
+  <script type="text/javascript">
+    $(".countdown").each(function() {
+        $(this).countdown($(this).attr('data-end'), function(event) {
+          $(this).text(
+            event.strftime('%D days %H:%M:%S')
+          );
+        });
+    })
+  </script>
+</ui:composition>

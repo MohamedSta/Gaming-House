@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+	<ui:define name="Section">
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<h:form> 
+    <p:dataScroller value="#{gestionGamer.teams}" var="team" chunkSize="10">
+        <f:facet name="header">
+		<h3>List Of Team</h3>
+      </f:facet>
+ 
+        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+            <img src="../resources/images/#{team.id_team}.jpg" /> 
+ 
+            <p:outputPanel>
+                <h:panelGrid columns="2" cellpadding="5">
+                  
+ 
+                    <h:outputText value="Team Name:" />
+                    <h:outputText value="#{team.name}" style="font-weight: bold"/>
+ 
+                    <h:outputText value="Nbre Max:" />
+                    <h:outputText value="#{team.max_members}" style="font-weight: bold"/>
+     
+   <h:commandLink  value="Send Request" id="ajax" 
+    action="#{gestionGamer.RTeam(team.id_team,authentificationBean.g.id)}" styleClass="ui-priority-primary" />
+                </h:panelGrid>
+            </p:outputPanel>
+        </h:panelGrid>
+    </p:dataScroller>
+</h:form>
+	</ui:define>
+</ui:composition>

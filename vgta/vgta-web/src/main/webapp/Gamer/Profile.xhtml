@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+	<ui:define name="Section">
+ <div class="youplay-banner banner-top xsmall">
+      <div class="image" style="background-image: url(../resources/images/bg.jpg)" data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+      </div>
+
+      <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+        <div>
+          <div class="container">
+         <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+        <div>
+          <div class="container youplay-user">
+            <a href="assets/images/user-photo.jpg" class="angled-img image-popup">
+              <div class="img">
+              <p:graphicImage value="#{gestionGamer.dbImage}"></p:graphicImage>
+               
+              </div>
+              <i class="fa fa-search-plus icon"></i>
+            </a>
+            <!--
+                    -->
+					
+            <div class="user-data">
+              <h2>#{gestionGamer.g1.email}</h2>
+              <div class="location"><i class="fa fa-map-marker"></i> Los Angeles</div>
+              <div class="activity">
+                 
+                <div>
+                  <div class="num">12</div>
+                  <div class="title">Games</div>
+                </div>
+                <div>
+                  <div class="num">689</div>
+                  <div class="title">Followers</div>
+                </div>
+              </div>
+            </div>
+			
+          </div>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Banner -->
+
+
+    <div class="container youplay-content">
+
+      <div class="col-md-9">
+ 
+
+        <div class="clearfix"></div>
+
+ 
+        <!-- Forums List -->
+        <ul class="youplay-forum mr-10">
+
+          <li class="body">
+
+            
+
+         
+
+            <div>
+              <div class="top">
+                <a class="author h5 pull-left" href="#!">About Me</a>
+                <div class="date pull-right"><i class="fa fa-calendar"></i> 25 minutes ago</div>
+              </div>
+
+              <div class="avatar pull-left">
+                <img src="assets/images/avatar.png" alt=""/>
+              </div>
+              <div class="reply clearfix">
+                <div class="text">
+                  His duobus, sicariorum. Et orci aetate erat, sed nescio quo modo se gerendo levir meus aufert a me. Propter hoc 'interventu 'vivere me scito. Et tamen hoc quod multo altius est eget arcu. Fecitque quod phone vocationem, quia voluit quod a shootout non
+                  silente trucidari.
+                </div>
+                <a href="#!" class="pull-right">Reply</a>
+              </div>
+            </div>
+
+          </li>
+
+        </ul>
+        <!-- /Forums List -->
+
+        <div class="clearfix"></div>
+
+        <p>Viewing 4 replies - 1 through 4 (of 4 total)</p>
+
+      </div>
+
+      <!-- Right Side -->
+      
+
+    </div>
+	</ui:define>
+</ui:composition>

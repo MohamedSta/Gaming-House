@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="vgta">
+		<jta-data-source>java:/vgta</jta-data-source>
+		<class>tn.esprit.thewalkingdev.entites.Administrator</class>
+		<class>tn.esprit.thewalkingdev.entites.Article</class>
+		<class>tn.esprit.thewalkingdev.entites.Brand</class>
+		<class>tn.esprit.thewalkingdev.entites.Category</class>
+		<class>tn.esprit.thewalkingdev.entites.Contribution</class>
+		<class>tn.esprit.thewalkingdev.entites.ContributionPK</class>
+		<class>tn.esprit.thewalkingdev.entites.Election</class>
+		<class>tn.esprit.thewalkingdev.entites.Equipment</class>
+		<class>tn.esprit.thewalkingdev.entites.Events</class>
+		<class>tn.esprit.thewalkingdev.entites.Gamer</class>
+		<class>tn.esprit.thewalkingdev.entites.Message</class>
+		<class>tn.esprit.thewalkingdev.entites.Participant</class>
+		<class>tn.esprit.thewalkingdev.entites.Sponsor</class>
+		<class>tn.esprit.thewalkingdev.entites.SubCategory</class>
+		<class>tn.esprit.thewalkingdev.entites.Team</class>
+		<class>tn.esprit.thewalkingdev.entites.Topic</class>
+		<class>tn.esprit.thewalkingdev.entites.Tournament</class>
+		<class>tn.esprit.thewalkingdev.entites.Trophy</class>
+		<class>tn.esprit.thewalkingdev.entites.TrophyPK</class>
+		<class>tn.esprit.thewalkingdev.entites.TypeEquipment</class>
+		<class>tn.esprit.thewalkingdev.entites.TypeEvent</class>
+		<class>tn.esprit.thewalkingdev.entites.Venue</class>
+		<class>tn.esprit.thewalkingdev.entites.Vote</class>
+			<properties>
+		<property name="hibernate.hbm2ddl.auto" value="update"/>
+		<property name="hibernate.show_sql" value="true"/>
+		<property name="hibernate.format_sql" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>

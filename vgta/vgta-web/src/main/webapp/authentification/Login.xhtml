@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://java.sun.com/jsf/jsf"
+	xmlns:pt="http://java.sun.com/jsf/passthrought"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ 
+ 
+ 
+  <link rel="stylesheet" type="text/css" href="../resources/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="../resources/css/youplay-light.min.css" />
+
+	 
+ 
+	 
+</h:head>
+
+
+<h:body>
+
+	<!-- Preloader 
+  <div class="page-preloader preloader-wrapp">
+    <img src="assets/images/logo.png" alt="">
+    <div class="preloader"></div>
+  </div>
+  -->
+
+	<!-- Navbar -->
+<nav class="navbar-youplay navbar navbar-default navbar-fixed-top ">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="off-canvas" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"> <img
+					src="../resources/images/logo.png" alt="" />
+				</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown dropdown-hover "><a href="#!"
+						class="dropdown-toggle" role="button" aria-expanded="false">
+							Events <span class="label">games</span>
+					</a></li>
+					<li class="dropdown dropdown-hover "><a href="#!"
+						class="dropdown-toggle" role="button" aria-expanded="false">
+							Blog <span class="label">news</span>
+					</a></li>
+					<li class="dropdown dropdown-hover "><a href="#!"
+						class="dropdown-toggle" role="button" aria-expanded="false">
+							Equipement <span class="label">full list</span>
+					</a></li>
+					<li class="dropdown dropdown-hover "><a href="#!"
+						class="dropdown-toggle" role="button" aria-expanded="false">
+							Sponsors<span class="label">full list</span>
+					</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown dropdown-hover "><a href="#!"
+						class="dropdown-toggle" role="button" aria-expanded="false"> <ui:insert
+								name="emailuser"> #{authentificationBean.g.email}</ui:insert> <span
+							class="badge bg-default">2</span> <span class="caret"></span> <span
+							class="label">it is you</span>
+					</a>
+						<div class="dropdown-menu">
+							<ul role="menu">
+								<li><h:form>
+										<h:commandLink value="Request To be a member of Team"
+											action="/Gamer/Member.jsf?faces-redirect=true" rendered="#{authentificationBean.g.team ==null}">
+
+										</h:commandLink>
+										<br/>
+<h:commandLink value="Register a new Gamer" action="/Gamer/AddGamer.jsf?faces-redirect=true">
+	</h:commandLink>
+									</h:form></li>
+								<li><h:form>
+																<br/>
+								
+										<h:commandLink value="Edit Your Account"
+											action="/Gamer/UpdateGamer.jsf?faces-redirect=true" styleClass="color='White'">
+
+										</h:commandLink>
+
+									</h:form></li>
+								<li class="divider"></li>
+
+								<li><h:form>
+								<br/>
+										<h:commandLink
+											action="#{gestionGamer.dodelete(authentificationBean.g)}"
+											value="Delete Account" />
+								<br/>
+
+										<h:commandLink action="#{authentificationBean.dologout()}"
+											value="Log out" />
+									</h:form></li>
+							</ul>
+						</div></li>
+					<li><a class="search-toggle" href="search.html"> <i
+							class="fa fa-search"></i>
+					</a></li>
+					<li class="dropdown dropdown-hover dropdown-cart"><a href="#!"
+						class="dropdown-toggle" role="button" aria-expanded="false"> <i
+							class="fa fa-shopping-cart"></i>
+					</a>
+						<div class="dropdown-menu" style="width: 300px;">
+							<div class="row youplay-side-news">
+								<div class="col-xs-3 col-md-4">
+									<a href="#" class="angled-img" />
+									<div class="img">
+
+										<img src="assets/images/game-bloodborne-500x375.jpg" alt="" />
+									</div>
+
+								</div>
+								<div class="col-xs-9 col-md-8">
+									<a href="#" style="text-decoration: none;"
+										class="pull-right mr-10"><i class="fa fa-times"></i></a>
+
+									<h4 class="ellipsis">
+										<a href="#">Bloodborne</a>
+									</h4>
+									<span class="quantity">1 × <span class="amount">$50.00</span></span>
+								</div>
+							</div>
+
+							<div class="row youplay-side-news">
+								<div class="col-xs-3 col-md-4">
+									<a href="#" class="angled-img">
+										<div class="img">
+
+											<img
+												src="assets/images/game-kingdoms-of-amalur-reckoning-500x375.jpg"
+												alt="" />
+										</div>
+									</a>
+								</div>
+								<div class="col-xs-9 col-md-8">
+									<a href="#" style="text-decoration: none;"
+										class="pull-right mr-10"><i class="fa fa-times"></i></a>
+
+									<h4 class="ellipsis">
+										<a href="#">Kingdoms of Amalur</a>
+									</h4>
+									<span class="quantity">1 × <span class="amount">$20.00</span></span>
+								</div>
+							</div>
+
+							<div class="ml-20 mr-20 pull-right">
+								<strong>Subtotal:</strong> <span class="amount">$70.00</span>
+							</div>
+
+							<div class="btn-group pull-right m-15">
+								<a href="#" class="btn btn-default btn-sm">View Cart</a> <a
+									href="#" class="btn btn-default btn-sm">Checkout</a>
+							</div>
+						</div></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- /Navbar -->
+
+	<!-- Main Content -->
+	<section class="content-wrap full youplay-login"> <!-- Banner -->
+	<div class="youplay-banner banner-top">
+		<div class="image"
+			style="background-image: url(../resources/images/banner-bg.jpg)"></div>
+
+		<div class="info">
+			<div>
+				<div class="container align-center">
+					<div class="youplay-form">
+						<h2>Login</h2>
+
+<h:outputText value="#{authentificationBean.message}" style="color:red" />
+
+						  <h:form  >
+							<div class="youplay-input">
+							Email
+					<h:inputText id="emailInput" value="#{authentificationBean.login}"  placeholder="Email" />
+							</div>
+							<div class="youplay-input">
+	                        Password
+					<h:inputSecret id="passwordInput" value="#{authentificationBean.pwd}" styleClass="form-control" placeholder="Password" />
+							</div>
+						
+						 
+							<button class="btn btn-default db"> <h:commandButton action="#{authentificationBean.dologin()}" value="Sign In" styleClass="btn btn-primary btn-block btn-flat" /></button>
+ 
+						</h:form>  
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- /Banner --> </section>
+	<!-- /Main Content -->
+
+	 
+
+
+	<!-- jQuery -->
+	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>  
+	 
+
+	<!-- CSS Shapes Polyfill -->
+	<h:outputScript library="js" name="shapes-polyfill.min.js"></h:outputScript>  
+
+ 
+	<!-- Hexagon Progress -->
+	<h:outputScript library="js" name="jquery.hexagonprogress.min.js"></h:outputScript>  
+ 
+	<!-- Bootstrap -->
+	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>  
+ 
+	<!-- Smooth Scroll -->
+	<h:outputScript library="js" name="smoothscroll.js"></h:outputScript>  
+	 
+	<!-- youplay -->
+	<h:outputScript library="js" name="youplay.min.js"></h:outputScript>  
+ 	<!-- init youplay -->
+	<script>
+    if(typeof youplay !== 'undefined') {
+        youplay.init({
+            smoothscroll: false,
+        });
+    }
+  </script>
+
+</h:body>
+</html>

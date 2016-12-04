@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/WEB-INF/template/template.xhtml"> 
+
+<ui:define name="pageTitle">TAG</ui:define>
+	<ui:define name="bannerName">Sponsors</ui:define>
+	<ui:define name="mainPagesContent">
+<h:form>
+<h:commandButton action="#{gestionSponsor.doCallAddSponsor()}" value="Add Sponsor"  styleClass="btn active btn-primary"/>
+</h:form>
+<h:dataTable value="#{gestionSponsor.sponsors}" var="sponsor" border="2" binding="#{gestionSponsor.datatable}" styleClass="table">
+
+<h:column>
+<f:facet name="header">Name Contact Sponsor</f:facet>
+#{sponsor.name_contact_sponsor}
+</h:column>
+<h:column>
+<f:facet name="header">Name Sponsor</f:facet>
+#{sponsor.name_sponsor}
+</h:column>
+<h:column>
+<f:facet name="header">Email</f:facet>
+#{sponsor.email}
+</h:column>
+<h:column>
+<f:facet name="header">Date Start Contract </f:facet>
+
+ <h:outputText value="#{sponsor.dateStart}" >
+              <f:convertDateTime pattern="dd.MM.yyyy " />
+ </h:outputText>
+  </h:column>
+  
+  <h:column>
+<f:facet name="header">Date End Contract </f:facet>
+
+ <h:outputText value="#{sponsor.dateEnd}" >
+              <f:convertDateTime pattern="dd.MM.yyyy " />
+ </h:outputText>
+  </h:column>
+  
+  
+<h:column>
+<f:facet name="header">Manage Sponsor</f:facet>
+<h:form>
+<h:commandButton action="#{gestionSponsor.doDeleteSponsor()}" value="Delete" styleClass="btn active btn-primary"/>
+
+<h:commandButton value="Send Mail" action="#{gestionSponsor.doShowFormMail()}" styleClass="btn active btn-primary" >
+<f:setPropertyActionListener target="#{gestionSponsor.sponsor}" value="#{sponsor}"></f:setPropertyActionListener>
+
+</h:commandButton>
+<h:commandButton value="update" action="#{gestionSponsor.doShowForm()}" styleClass="btn active btn-primary" >
+
+<f:setPropertyActionListener target="#{gestionSponsor.sponsor}" value="#{sponsor}">
+</f:setPropertyActionListener>
+	
+</h:commandButton>
+
+
+</h:form>
+</h:column>
+</h:dataTable>
+
+<h:form rendered="#{gestionSponsor.formDisplyed}" id="UpdateForm" >
+<h:outputText type="hidden" value="Form Sponsor" />
+
+<h:inputHidden value="#{gestionSponsor.sponsor.id_sponsor}" id="idSponsor" type="hidden" />
+
+<h:outputLabel value="Name Contact:" for="NameContact" />
+<div class="youplay-input">
+<h:inputText value="#{gestionSponsor.sponsor.name_contact_sponsor}" id="NameContact" />
+</div>
+
+<h:outputLabel value="Name Sponsor:" for="NameSponsor" />
+<div class="youplay-input">
+<h:inputText value="#{gestionSponsor.sponsor.name_sponsor}"  id="NameSponsor" />
+</div>
+
+<h:outputLabel value="Email:" for="NameEmail" />
+<div class="youplay-input">
+<h:inputText value="#{gestionSponsor.sponsor.email}" id="NameEmail" />
+</div>
+<h:outputLabel value="Date Start Contact:" for="startContact" />
+<div class="youplay-input">
+<p:calendar value="#{gestionSponsor.sponsor.dateStart}"
+			requiredMessage="End date required" />
+</div>
+<h:outputLabel value="Date End Contact:" for="endContact" />
+<div class="youplay-input">
+<p:calendar value="#{gestionSponsor.sponsor.dateEnd}"
+			requiredMessage="End date required" />
+</div>
+<h:commandButton action="#{gestionSponsor.doUpdate()}"  value="update" styleClass="btn active btn-primary" />    
+   
+</h:form >
+
+<h:form rendered="#{gestionSponsor.formMailDisplyed}"  id="MailFrom">
+
+
+
+           <h:outputLabel value="Mail"  />
+    <div class="youplay-input">
+<h:inputText value="#{gestionSponsor.sponsor.email}"   id="mailSponsor" />
+</div>
+             <h:outputLabel value="Subject"  />
+             <div class="youplay-input">
+<h:inputText value="#{Cont}"  binding="#{gestionSponsor.cont}" id="contSponsor" />
+</div>
+   
+  <h:outputLabel value="Content"  />
+            <div class="youplay-input">
+<h:inputTextarea value="#{Content}"  binding="#{gestionSponsor.content}" id="contenuSponsor" />
+</div>
+   <h:commandButton action="#{gestionSponsor.doSendMailDynamic(Content,Cont)}"  value="Send" styleClass="btn active btn-primary"/> 
+</h:form>
+
+
+
+	</ui:define>
+	<ui:define name="scriptinclude"></ui:define>
+</ui:composition>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+	<ui:define name="Section">
+
+		<section class="content-wrap full youplay-login"> <!-- Banner -->
+		<div class="youplay-banner banner-top">
+			<div class="image"
+				style="background-image: url(../resources/images/banner-bg.jpg)"></div>
+
+			<div class="info">
+				<div>
+					<div class="container align-center">
+						<div class="youplay-form">
+							<h2>Update Gamer</h2>
+
+
+							<h:form  enctype="multipart/form-data">
+								<div class="youplay-input">
+									Email
+									<p:inputText id="email" required="true" label="email" size="40"
+										requiredMessage="Please enter your email address."
+										validatorMessage="Invalid email format"
+										value="#{authentificationBean.g.email}">
+
+										<f:validateRegex
+											pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+									</p:inputText>
+									<p:watermark for="email" value="Email Address *" />
+									<p:message for="email" />
+
+
+								</div>
+								<div class="youplay-input">
+									firstName
+									<p:inputText id="firstName" required="true" label="firstName"
+										size="40" requiredMessage="Please enter your FirstName."
+										value="#{authentificationBean.g.firstName}">
+									</p:inputText>
+									<p:watermark for="firstName" value="FirstName *" />
+									<p:message for="firstName" />
+								</div>
+								<div class="youplay-input">
+									LastName
+									<p:inputText id="LastName" required="true" label="LastName"
+										size="40" requiredMessage="Please enter your LastName"
+										value="#{authentificationBean.g.lastName}">
+									</p:inputText>
+									<p:watermark for="LastName" value="LastName *" />
+									<p:message for="LastName" />
+								</div>
+								<div class="youplay-input">
+									Age
+									<p:inputText id="Age" required="true" label="Age" size="40"
+										requiredMessage="Please enter your Age" type="number"
+										value="#{authentificationBean.g.age}">
+									</p:inputText>
+									<p:watermark for="Age" value="Age *" />
+									<p:message for="Age" />
+								</div>
+								<div class="youplay-input">
+									Password
+								 
+									 
+									<h:outputLabel for="pwd2" value="Confirm Password : " />
+									<p:password id="pwd2" value="#{authentificationBean.g.pwd}"
+										label="Password 2" required="true" styleClass="form-control"
+										validatorMessage="Password Invalid" >
+                           <f:validateRegex pattern="#{authentificationBean.g.pwd}" />
+										</p:password>
+									<p:watermark for="pwd2" value=" Comfirm password *" />
+									<p:message for="pwd2" />
+								</div>
+  		 
+	<h:selectOneMenu value="#{authentificationBean.role}">
+   	<f:selectItem itemValue="0" itemLabel="Gamer" />
+   	<f:selectItem itemValue="2" itemLabel="Team Logistics" />
+   	<f:selectItem itemValue="3" itemLabel="Team Media" />
+    <f:selectItem itemValue="4" itemLabel="Team Organisation" />
+    <f:selectItem itemValue="5" itemLabel="Team Sponsoring" />
+   	   	</h:selectOneMenu>
+   	   	 <p:separator  />	
+   	   	<p:growl id="messages" showDetail="true" />
+ 
+ <br />
+ <br />
+ <p:separator />	
+ 
+ 
+ 
+ 
+ 
+ 				
+								<button class="btn btn-default db">
+									<h:commandButton action="#{authentificationBean.doupdate(authentificationBean.g)}"
+										value="Update Gamer"
+										styleClass="btn btn-primary btn-block btn-flat" />
+								</button>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- /Banner --> </section>
+		<!-- /Main Content -->
+
+
+	
+
+
+		<!-- jQuery -->
+		<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+
+
+		<!-- CSS Shapes Polyfill -->
+		<h:outputScript library="js" name="shapes-polyfill.min.js"></h:outputScript>
+	</ui:define>
+</ui:composition>
